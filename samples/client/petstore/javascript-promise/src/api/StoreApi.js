@@ -9,17 +9,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 (function(root, factory) {
@@ -68,7 +57,7 @@
 
       // verify the required parameter 'orderId' is set
       if (orderId == undefined || orderId == null) {
-        throw "Missing the required parameter 'orderId' when calling deleteOrder";
+        throw new Error("Missing the required parameter 'orderId' when calling deleteOrder");
       }
 
 
@@ -98,7 +87,7 @@
     /**
      * Returns pet inventories by status
      * Returns a map of status codes to quantities
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, {'String': 'Integer'}>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, {'String': 'Number'}>}
      */
     this.getInventory = function() {
       var postBody = null;
@@ -116,7 +105,7 @@
       var authNames = ['api_key'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = {'String': 'Integer'};
+      var returnType = {'String': 'Number'};
 
       return this.apiClient.callApi(
         '/store/inventory', 'GET',
@@ -129,7 +118,7 @@
     /**
      * Find purchase order by ID
      * For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions
-     * @param {Integer} orderId ID of pet that needs to be fetched
+     * @param {Number} orderId ID of pet that needs to be fetched
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Order}
      */
     this.getOrderById = function(orderId) {
@@ -137,7 +126,7 @@
 
       // verify the required parameter 'orderId' is set
       if (orderId == undefined || orderId == null) {
-        throw "Missing the required parameter 'orderId' when calling getOrderById";
+        throw new Error("Missing the required parameter 'orderId' when calling getOrderById");
       }
 
 
@@ -175,7 +164,7 @@
 
       // verify the required parameter 'body' is set
       if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling placeOrder";
+        throw new Error("Missing the required parameter 'body' when calling placeOrder");
       }
 
 

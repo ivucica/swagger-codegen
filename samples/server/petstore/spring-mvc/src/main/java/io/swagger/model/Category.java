@@ -6,16 +6,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
-
-
 /**
  * Category
  */
 
 public class Category   {
+  @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("name")
   private String name = null;
 
   public Category id(Long id) {

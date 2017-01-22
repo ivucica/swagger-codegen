@@ -6,14 +6,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
-
-
 /**
  * SpecialModelName
  */
 
 public class SpecialModelName   {
+  @JsonProperty("$special[property.name]")
   private Long specialPropertyName = null;
 
   public SpecialModelName specialPropertyName(Long specialPropertyName) {

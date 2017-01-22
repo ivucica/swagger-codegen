@@ -6,17 +6,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
-
-
 /**
  * ReadOnlyFirst
  */
 
 public class ReadOnlyFirst   {
+  @JsonProperty("bar")
   private String bar = null;
 
+  @JsonProperty("baz")
   private String baz = null;
+
+  public ReadOnlyFirst bar(String bar) {
+    this.bar = bar;
+    return this;
+  }
 
    /**
    * Get bar
@@ -25,6 +29,10 @@ public class ReadOnlyFirst   {
   @ApiModelProperty(value = "")
   public String getBar() {
     return bar;
+  }
+
+  public void setBar(String bar) {
+    this.bar = bar;
   }
 
   public ReadOnlyFirst baz(String baz) {

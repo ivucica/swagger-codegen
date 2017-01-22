@@ -6,9 +6,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-
-
+import io.swagger.model.OuterEnum;
 
 /**
  * EnumTest
@@ -21,7 +19,9 @@ public class EnumTest   {
   public enum EnumStringEnum {
     UPPER("UPPER"),
     
-    LOWER("lower");
+    LOWER("lower"),
+    
+    EMPTY("");
 
     private String value;
 
@@ -30,11 +30,23 @@ public class EnumTest   {
     }
 
     @Override
+    @JsonValue
     public String toString() {
       return String.valueOf(value);
     }
+
+    @JsonCreator
+    public static EnumStringEnum fromValue(String text) {
+      for (EnumStringEnum b : EnumStringEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
   }
 
+  @JsonProperty("enum_string")
   private EnumStringEnum enumString = null;
 
   /**
@@ -52,11 +64,23 @@ public class EnumTest   {
     }
 
     @Override
+    @JsonValue
     public String toString() {
       return String.valueOf(value);
     }
+
+    @JsonCreator
+    public static EnumIntegerEnum fromValue(String text) {
+      for (EnumIntegerEnum b : EnumIntegerEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
   }
 
+  @JsonProperty("enum_integer")
   private EnumIntegerEnum enumInteger = null;
 
   /**
@@ -74,12 +98,27 @@ public class EnumTest   {
     }
 
     @Override
+    @JsonValue
     public String toString() {
       return String.valueOf(value);
     }
+
+    @JsonCreator
+    public static EnumNumberEnum fromValue(String text) {
+      for (EnumNumberEnum b : EnumNumberEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
   }
 
+  @JsonProperty("enum_number")
   private EnumNumberEnum enumNumber = null;
+
+  @JsonProperty("outerEnum")
+  private OuterEnum outerEnum = null;
 
   public EnumTest enumString(EnumStringEnum enumString) {
     this.enumString = enumString;
@@ -135,6 +174,24 @@ public class EnumTest   {
     this.enumNumber = enumNumber;
   }
 
+  public EnumTest outerEnum(OuterEnum outerEnum) {
+    this.outerEnum = outerEnum;
+    return this;
+  }
+
+   /**
+   * Get outerEnum
+   * @return outerEnum
+  **/
+  @ApiModelProperty(value = "")
+  public OuterEnum getOuterEnum() {
+    return outerEnum;
+  }
+
+  public void setOuterEnum(OuterEnum outerEnum) {
+    this.outerEnum = outerEnum;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,12 +204,13 @@ public class EnumTest   {
     EnumTest enumTest = (EnumTest) o;
     return Objects.equals(this.enumString, enumTest.enumString) &&
         Objects.equals(this.enumInteger, enumTest.enumInteger) &&
-        Objects.equals(this.enumNumber, enumTest.enumNumber);
+        Objects.equals(this.enumNumber, enumTest.enumNumber) &&
+        Objects.equals(this.outerEnum, enumTest.outerEnum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enumString, enumInteger, enumNumber);
+    return Objects.hash(enumString, enumInteger, enumNumber, outerEnum);
   }
 
   @Override
@@ -163,6 +221,7 @@ public class EnumTest   {
     sb.append("    enumString: ").append(toIndentedString(enumString)).append("\n");
     sb.append("    enumInteger: ").append(toIndentedString(enumInteger)).append("\n");
     sb.append("    enumNumber: ").append(toIndentedString(enumNumber)).append("\n");
+    sb.append("    outerEnum: ").append(toIndentedString(outerEnum)).append("\n");
     sb.append("}");
     return sb.toString();
   }

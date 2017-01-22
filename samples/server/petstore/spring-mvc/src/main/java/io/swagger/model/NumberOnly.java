@@ -7,14 +7,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 
-
-
-
 /**
  * NumberOnly
  */
 
 public class NumberOnly   {
+  @JsonProperty("JustNumber")
   private BigDecimal justNumber = null;
 
   public NumberOnly justNumber(BigDecimal justNumber) {

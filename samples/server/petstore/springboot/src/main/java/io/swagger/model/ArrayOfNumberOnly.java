@@ -9,14 +9,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
 /**
  * ArrayOfNumberOnly
  */
 
 public class ArrayOfNumberOnly   {
+  @JsonProperty("ArrayNumber")
   private List<BigDecimal> arrayNumber = new ArrayList<BigDecimal>();
 
   public ArrayOfNumberOnly arrayNumber(List<BigDecimal> arrayNumber) {

@@ -6,24 +6,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
-
-/**
- * Model for testing model name same as property name
- **/
-
 /**
  * Model for testing model name same as property name
  */
 @ApiModel(description = "Model for testing model name same as property name")
 
 public class Name   {
+  @JsonProperty("name")
   private Integer name = null;
 
+  @JsonProperty("snake_case")
   private Integer snakeCase = null;
 
+  @JsonProperty("property")
   private String property = null;
 
+  @JsonProperty("123Number")
   private Integer _123Number = null;
 
   public Name name(Integer name) {
@@ -44,6 +42,11 @@ public class Name   {
     this.name = name;
   }
 
+  public Name snakeCase(Integer snakeCase) {
+    this.snakeCase = snakeCase;
+    return this;
+  }
+
    /**
    * Get snakeCase
    * @return snakeCase
@@ -51,6 +54,10 @@ public class Name   {
   @ApiModelProperty(value = "")
   public Integer getSnakeCase() {
     return snakeCase;
+  }
+
+  public void setSnakeCase(Integer snakeCase) {
+    this.snakeCase = snakeCase;
   }
 
   public Name property(String property) {
@@ -71,6 +78,11 @@ public class Name   {
     this.property = property;
   }
 
+  public Name _123Number(Integer _123Number) {
+    this._123Number = _123Number;
+    return this;
+  }
+
    /**
    * Get _123Number
    * @return _123Number
@@ -78,6 +90,10 @@ public class Name   {
   @ApiModelProperty(value = "")
   public Integer get123Number() {
     return _123Number;
+  }
+
+  public void set123Number(Integer _123Number) {
+    this._123Number = _123Number;
   }
 
 

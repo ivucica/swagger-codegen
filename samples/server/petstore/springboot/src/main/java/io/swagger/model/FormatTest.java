@@ -9,38 +9,48 @@ import java.math.BigDecimal;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
-
-
-
 /**
  * FormatTest
  */
 
 public class FormatTest   {
+  @JsonProperty("integer")
   private Integer integer = null;
 
+  @JsonProperty("int32")
   private Integer int32 = null;
 
+  @JsonProperty("int64")
   private Long int64 = null;
 
+  @JsonProperty("number")
   private BigDecimal number = null;
 
+  @JsonProperty("float")
   private Float _float = null;
 
+  @JsonProperty("double")
   private Double _double = null;
 
+  @JsonProperty("string")
   private String string = null;
 
+  @JsonProperty("byte")
   private byte[] _byte = null;
 
+  @JsonProperty("binary")
   private byte[] binary = null;
 
+  @JsonProperty("date")
   private LocalDate date = null;
 
+  @JsonProperty("dateTime")
   private DateTime dateTime = null;
 
+  @JsonProperty("uuid")
   private String uuid = null;
 
+  @JsonProperty("password")
   private String password = null;
 
   public FormatTest integer(Integer integer) {
@@ -50,8 +60,8 @@ public class FormatTest   {
 
    /**
    * Get integer
-   * minimum: 10.0
-   * maximum: 100.0
+   * minimum: 10
+   * maximum: 100
    * @return integer
   **/
   @ApiModelProperty(value = "")
@@ -70,8 +80,8 @@ public class FormatTest   {
 
    /**
    * Get int32
-   * minimum: 20.0
-   * maximum: 200.0
+   * minimum: 20
+   * maximum: 200
    * @return int32
   **/
   @ApiModelProperty(value = "")

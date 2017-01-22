@@ -10,14 +10,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-
-
 /**
  * MapTest
  */
 
 public class MapTest   {
+  @JsonProperty("map_map_of_string")
   private Map<String, Map<String, String>> mapMapOfString = new HashMap<String, Map<String, String>>();
 
   /**
@@ -35,11 +33,23 @@ public class MapTest   {
     }
 
     @Override
+    @JsonValue
     public String toString() {
       return String.valueOf(value);
     }
+
+    @JsonCreator
+    public static InnerEnum fromValue(String text) {
+      for (InnerEnum b : InnerEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
   }
 
+  @JsonProperty("map_of_enum_string")
   private Map<String, InnerEnum> mapOfEnumString = new HashMap<String, InnerEnum>();
 
   public MapTest mapMapOfString(Map<String, Map<String, String>> mapMapOfString) {

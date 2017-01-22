@@ -7,14 +7,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.model.Animal;
 
-
-
-
 /**
  * Dog
  */
 
 public class Dog extends Animal  {
+  @JsonProperty("breed")
   private String breed = null;
 
   public Dog breed(String breed) {

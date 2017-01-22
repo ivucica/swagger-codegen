@@ -2,31 +2,38 @@ package io.swagger.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
-
-
 /**
- * User
+ * A User who is purchasing from the pet store
  */
+@ApiModel(description = "A User who is purchasing from the pet store")
 
 public class User   {
+  @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("username")
   private String username = null;
 
+  @JsonProperty("firstName")
   private String firstName = null;
 
+  @JsonProperty("lastName")
   private String lastName = null;
 
+  @JsonProperty("email")
   private String email = null;
 
+  @JsonProperty("password")
   private String password = null;
 
+  @JsonProperty("phone")
   private String phone = null;
 
+  @JsonProperty("userStatus")
   private Integer userStatus = null;
 
   public User id(Long id) {

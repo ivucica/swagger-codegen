@@ -2,19 +2,20 @@ package io.swagger.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-
-
-
 /**
- * Tag
+ * A tag for a pet
  */
+@ApiModel(description = "A tag for a pet")
 
 public class Tag   {
+  @JsonProperty("id")
   private Long id = null;
 
+  @JsonProperty("name")
   private String name = null;
 
   public Tag id(Long id) {
